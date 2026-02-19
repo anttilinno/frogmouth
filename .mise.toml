@@ -1,0 +1,35 @@
+[tools]
+python = "3.14"
+uv = "latest"
+
+[tasks.setup]
+description = "Set up the development environment"
+run = "uv sync"
+
+[tasks.run]
+description = "Run frogmouth"
+run = "uv run frogmouth"
+
+[tasks.debug]
+description = "Run frogmouth in debug mode"
+run = "TEXTUAL=devtools uv run frogmouth"
+
+[tasks.build]
+description = "Build the package for distribution"
+run = "uv build"
+
+[tasks.clean]
+description = "Clean up the package builds"
+run = "rm -rf dist"
+
+[tasks.lint]
+description = "Run Pylint over the library"
+run = "uv run pylint frogmouth"
+
+[tasks.typecheck]
+description = "Perform static type checks with mypy"
+run = "uv run mypy --scripts-are-modules frogmouth"
+
+[tasks.console]
+description = "Run the textual console"
+run = "uv run textual console"
